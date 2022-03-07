@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "8a791b16-9e57-4300-82e5-a5336a482bef",
+		"name": "music app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"aqui@aqui.com\",\n    \"password\": \"12\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign in",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"aqui@aqui.com\",\n    \"password\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/create",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Songs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJhcXVpQGFxdWkuY29tIiwiaWF0IjoxNjQ2NjIwMjQ0LCJleHAiOjE2NDY2MjM4NDR9.Vdvs1xt7KOTQqW_b89wib_A2Yqy_VpWCCCntWAc4juk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/favorite-songs?songName=song_name1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"favorite-songs"
+					],
+					"query": [
+						{
+							"key": "artist",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "album",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "songName",
+							"value": "song_name1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "creating a song",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJhcXVpQGFxdWkuY29tIiwiaWF0IjoxNjQ2NjIwMjQ0LCJleHAiOjE2NDY2MjM4NDR9.Vdvs1xt7KOTQqW_b89wib_A2Yqy_VpWCCCntWAc4juk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"artist\":\"artist2\",\n    \"album\":\"album2\",\n    \"song_name\":\"song_name2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/favorite-songs",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"favorite-songs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updating a song",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJhcXVpQGFxdWkuY29tIiwiaWF0IjoxNjQ2NjIwMjQ0LCJleHAiOjE2NDY2MjM4NDR9.Vdvs1xt7KOTQqW_b89wib_A2Yqy_VpWCCCntWAc4juk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"artist\":\"artist100\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/favorite-songs/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"favorite-songs",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting a song",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJhcXVpQGFxdWkuY29tIiwiaWF0IjoxNjQ2NjIwMjQ0LCJleHAiOjE2NDY2MjM4NDR9.Vdvs1xt7KOTQqW_b89wib_A2Yqy_VpWCCCntWAc4juk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/favorite-songs/2?",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"favorite-songs",
+						"2"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
