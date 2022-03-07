@@ -1,0 +1,46 @@
+version: "3.8"
+services:
+  music-app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: login
+    ports:
+      - "3000:3000"
+    command: npm run start:dev
+    volumes:
+      - .:/music-app
+      - ./node_modules
+    networks:
+      - login-network
+    depends_on:
+      - mysql-login
+
+  mysql-login:
+    image: mysql
+    restart: always
+    container_name: mysql-user
+    environment:
+      MYSQL_DATABASE: users
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    cap_add:
+      - SYS_NICE
+    networks:
+      - login-network
+    volumes:
+      - mysql-login-volume:/var/lib/mysql
+
+networks:
+  login-network:
+    driver: bridge
+volumes:
+  mysql-login-volume:
+
+
+
+# How to create a new MySQL user with old authentication method:
+# CREATE USER 'user'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+# GRANT ALL PRIVILEGES ON *.* TO 'user'@'%';
+# FLUSH PRIVILEGES;
